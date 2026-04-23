@@ -12,7 +12,7 @@ import (
 
 	"github.com/brianvoe/gofakeit"
 
-	desc "github.com/vivaldi7/url-shortener/mic_curce/grpc/pkg/note_v1"
+	desc "github.com/vivaldi7/golang_code/mic_curce/grpc/pkg/note_v1"
 )
 
 const grpcPort = 50051

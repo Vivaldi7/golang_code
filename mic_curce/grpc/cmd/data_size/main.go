@@ -7,7 +7,7 @@ import (
 	"github.com/brianvoe/gofakeit"
 	"google.golang.org/grpc/encoding/proto"
 
-	desc "github.com/vivaldi7/mic_curce/grpc/pkg/note_v1"
+	desc "github.com/vivaldi7/golang_code/mic_curce/grpc/pkg/note_v1"
 )
 
 func main() {
