@@ -1,7 +1,0 @@
-# Use this workspace to collaborate
-workspace:
-  id: 12ac0943-8ac1-45c2-8279-634d4fdde91c
-
-localResources:
-  specs:
-    - ..\mic_curce\grpc\api\note_v1\note.proto
