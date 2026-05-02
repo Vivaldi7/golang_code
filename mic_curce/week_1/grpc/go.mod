@@ -1,4 +1,4 @@
-module github.com/vivaldi7/golang_code/mic_curce/grpc
+module github.com/vivaldi7/golang_code/mic_curce/week_1/grpc
 
 go 1.25.6
 
