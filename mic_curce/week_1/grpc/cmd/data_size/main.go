@@ -8,7 +8,7 @@ import (
 	_ "google.golang.org/grpc/encoding/proto"
 	"google.golang.org/protobuf/proto"
 
-	desc "github.com/vivaldi7/golang_code/mic_curce/grpc/pkg/note_v1"
+	desc "github.com/vivaldi7/golang_code/mic_curce/week_1/grpc/pkg/note_v1"
 )
 
 func main() {

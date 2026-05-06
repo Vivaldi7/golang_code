@@ -1,1 +1,57 @@
 package main
+
+import (
+	"context"
+	"database/sql"
+	"log"
+	"time"
+
+	"github.com/brianvoe/gofakeit"
+	"github.com/jackc/pgx/v4"
+)
+
+const (
+	dbDSN = "host=localhost port=54321 dbname=note user=note-user password=note-password sslmode="
+)
+
+func main() {
+	ctx := context.Background()
+
+	//Создаем соединение с базой данных
+	con, err := pgx.Connect(ctx, dbDSN)
+	if err != nil {
+		log.Fatalf("failed to connect to database %v", err)
+	}
+
+	defer con.Close(ctx)
+
+	//делаем запрос на вставку записи в таблицу note
+	res, err := con.Exec(ctx, "INSERT INTO note (title, body) VALUES ($1, $2)", gofakeit.City(), gofakeit.Address().Street)
+	if err != nil {
+		log.Fatalf("failed to insert note %v", err)
+	}
+
+	log.Printf("inserted %d rows", res.RowsAffected())
+
+	//делаем запрос на выборку записей из таблицы note
+	rows, err := con.Query(ctx, "SELECT id, title, body, created_at, update_at FROM note")
+	if err != nil {
+		log.Fatalf("failed to select notes: %v", err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var id int
+		var title, body string
+		var createdAt time.Time
+		var updateAt sql.NullTime
+
+		err = rows.Scan(&id, &title, &body, &createdAt, &updateAt)
+		if err != nil {
+			log.Fatalf("failed to scan note %v", err)
+		}
+
+		//		log.Printf("id: #{id}, title: #{title}, body: #{body}, created_at: #{created_at}, update_at: #{update_at}")
+		log.Printf("id: %v, title: %v, body: %v, created_at: %v, update_at: %v", id, title, body, createdAt, updateAt)
+	}
+}

@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 
 	"github.com/fatih/color"
-	desc "github.com/vivaldi7/golang_code/mic_curce/grpc/pkg/note_v1"
+	desc "github.com/vivaldi7/golang_code/mic_curce/week_1/grpc/pkg/note_v1"
 )
 
 const (

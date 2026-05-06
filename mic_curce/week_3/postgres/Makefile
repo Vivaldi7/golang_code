@@ -3,7 +3,7 @@ include .env
 LOCAL_BIN:=C:/Users/836D~1/GOLang/mic_curce/week_3/postgres/bin
 
 LOCAL_MIGRATION_DIR=$(MIGRATiON_DIR)
-LOCAL_MIGRATION_DSN="host=localhost port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD)" 
+LOCAL_MIGRATION_DSN="host=localhost port=$(PG_PORT) dbname=$(PG_DATABASE_NAME) user=$(PG_USER) password=$(PG_PASSWORD) sslmode=disable"
 
 install-deps:
 	set GOBIN=$(LOCAL_BIN) && go install github.com/pressly/goose/v3/cmd/goose@v3.14.0
