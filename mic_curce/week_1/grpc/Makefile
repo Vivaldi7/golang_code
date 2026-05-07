@@ -1,4 +1,4 @@
-LOCAL_BIN := C:/Users/836D~1/GOLang/mic_curce/grpc/bin
+LOCAL_BIN := C:/Users/836D~1/GOLang/mic_curce/week_1/grpc/bin
 
 install-deps:
 	go env -w GOBIN=$(LOCAL_BIN)
