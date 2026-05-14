@@ -2,10 +2,16 @@
 
 /postman
 
-/mic_curce/week_3/postgres/bin
+/mic_curce/week_2.1/postgres/bin
 
 /mic_curce/week_2/config/bin
 
 /mic_curce/week_1/grpc/bin
 
-/mic_curce/week_3/postgres/goose_linux_x86_64
+/mic_curce/week_2.1/postgres/goose_linux_x86_64
+
+/mic_curce/week_2/config/goose_linux_x86_64
+
+/mic_curce/week_3/bin
+
+/mic_curce/week_3/goose_linux_x86_64
