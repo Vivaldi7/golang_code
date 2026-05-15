@@ -7,8 +7,8 @@ import (
 	sq "github.com/Masterminds/squirrel"
 	"github.com/jackc/pgx/v4/pgxpool"
 	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository"
-	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/mote/model"
 	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/converter"
+	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/model"
 	desc "github.com/vivaldi7/golang_code/mic_curce/week_3/pkg/note_v1"
 )
 
@@ -25,7 +25,7 @@ type repo struct {
 	db *pgxpool.Pool
 }
 
-func NewRepository(db *pgxpool.Pool) repository.NoteRepositoty {
+func NewRepository(db *pgxpool.Pool) repository.NoteRepository {
 	return &repo{db: db}
 }
 
