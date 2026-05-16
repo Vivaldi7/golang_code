@@ -16,7 +16,7 @@ const (
 	tableName       = "note"
 	idColumn        = "id"
 	titleColumn     = "title"
-	contentColumn   = "body"
+	contentColumn   = "content"
 	craetedAtColumn = "created_at"
 	updateAtColumn  = "update_at"
 )
@@ -63,6 +63,7 @@ func (r *repo) Get(ctx context.Context, id int64) (*desc.Note, error) {
 	}
 
 	var note model.Note
+	note.Info = &model.Info{}
 
 	err = r.db.QueryRow(ctx, query, args...).Scan(&note.ID, &note.Info.Title, &note.Info.Content, &note.CreatedAt, &note.UpdateAt)
 	if err != nil {

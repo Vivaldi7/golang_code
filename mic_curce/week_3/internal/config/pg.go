@@ -1,13 +1,11 @@
-package env
+package config
 
 import (
 	"errors"
 	"os"
-
-	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/config"
 )
 
-var _ config.PGConfig = (*pgConfig)(nil)
+//var _ config.PGConfig = (*pgConfig)(nil)
 
 const (
 	dsnEnvName = "PG_DSN"

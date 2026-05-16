@@ -6,7 +6,6 @@ require (
 	github.com/Masterminds/squirrel v1.5.4
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/joho/godotenv v1.5.1
-	github.com/vivaldi7/golang_code/mic_curce/week_2/config v0.0.0-20260507202636-9fb6b7db76d6
 	google.golang.org/grpc v1.81.0
 	google.golang.org/protobuf v1.36.11
 )

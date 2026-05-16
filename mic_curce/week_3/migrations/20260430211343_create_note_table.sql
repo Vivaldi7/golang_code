@@ -3,7 +3,7 @@
 CREATE TABLE note (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
-    body TEXT NOT NULL,
+    content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT now(),
     update_at TIMESTAMP
 );

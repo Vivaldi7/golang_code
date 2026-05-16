@@ -1,14 +1,12 @@
-package env
+package config
 
 import (
 	"errors"
 	"net"
 	"os"
-
-	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/config"
 )
 
-var _ config.GRPCConfig = (*grpcConfig)(nil)
+//var _ config.GRPCConfig = (*grpcConfig)(nil)
 
 const (
 	grpcHostEnvName = "GRPC_HOST"
@@ -35,6 +33,6 @@ func NewGRPCConfig() (*grpcConfig, error) {
 	}, nil
 }
 
-func (cfg *grpcConfig) Address() string {
+func (cfg *grpcConfig) GRPCAddress() string {
 	return net.JoinHostPort(cfg.host, cfg.port)
 }
