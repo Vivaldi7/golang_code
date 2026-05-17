@@ -6,10 +6,11 @@ import (
 
 	sq "github.com/Masterminds/squirrel"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/model"
 	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository"
 	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/converter"
-	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/model"
-	desc "github.com/vivaldi7/golang_code/mic_curce/week_3/pkg/note_v1"
+	modelRepo "github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/model"
+	//	desc "github.com/vivaldi7/golang_code/mic_curce/week_3/pkg/note_v1"
 )
 
 const (
@@ -29,7 +30,7 @@ func NewRepository(db *pgxpool.Pool) repository.NoteRepository {
 	return &repo{db: db}
 }
 
-func (r *repo) Create(ctx context.Context, info *desc.NoteInfo) (int64, error) {
+func (r *repo) Create(ctx context.Context, info *model.NoteInfo) (int64, error) {
 	builder := sq.Insert(tableName).
 		PlaceholderFormat(sq.Dollar).
 		Columns(titleColumn, contentColumn).
@@ -50,7 +51,7 @@ func (r *repo) Create(ctx context.Context, info *desc.NoteInfo) (int64, error) {
 	return id, nil
 }
 
-func (r *repo) Get(ctx context.Context, id int64) (*desc.Note, error) {
+func (r *repo) Get(ctx context.Context, id int64) (*model.Note, error) {
 	builder := sq.Select(idColumn, titleColumn, contentColumn, craetedAtColumn, updateAtColumn).
 		PlaceholderFormat(sq.Dollar).
 		From(tableName).
@@ -62,8 +63,8 @@ func (r *repo) Get(ctx context.Context, id int64) (*desc.Note, error) {
 		log.Fatalf("Failed to build query: %v", err)
 	}
 
-	var note model.Note
-	note.Info = &model.Info{}
+	var note modelRepo.Note
+	note.Info = &modelRepo.NoteInfo{}
 
 	err = r.db.QueryRow(ctx, query, args...).Scan(&note.ID, &note.Info.Title, &note.Info.Content, &note.CreatedAt, &note.UpdateAt)
 	if err != nil {

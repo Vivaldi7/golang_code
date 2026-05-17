@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/repository/note/model"
+	"github.com/vivaldi7/golang_code/mic_curce/week_3/internal/model"
 )
 
 type NoteService interface {
